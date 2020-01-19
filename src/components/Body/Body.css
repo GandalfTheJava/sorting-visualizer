@@ -1,7 +1,7 @@
 .bar-containers{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 .bar{
     border:1px solid black;

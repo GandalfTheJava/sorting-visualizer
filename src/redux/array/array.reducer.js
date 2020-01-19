@@ -1,6 +1,6 @@
 import arrayActionTypes from "./array.types";
 const INITIAL_STATE = {
-    arraySize: 10,
+    arraySize: 20,
     arrayOfNumbers: null
 }
 

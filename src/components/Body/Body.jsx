@@ -13,7 +13,7 @@ class Body extends Component {
     render() {
         const { arrayOfNumbers } = this.props.array
         return (
-            <div>
+            <div className="bar-containers">
                 {
                     arrayOfNumbers ? (arrayOfNumbers.map((element, index) => {
                         return (

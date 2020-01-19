@@ -10,13 +10,11 @@ class Toolbar extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
     componentDidMount = () => {
-        let { changeArrayNumbers } = this.props
-        let newArray = this.generateNewArray(); //Generate a new random assortment of numbers (10)
-        changeArrayNumbers(newArray);
+        this.generateNewArray(); //Generate a new random assortment of numbers (10)
     }
     componentDidUpdate(prevProps) {
         if (prevProps.array !== this.props.array) {
-            console.log('summat changed homes')
+            //UPDATE DOM COS SOMETHING CHANGED
         }
     }
     handleClick(algorithm) {
@@ -25,27 +23,30 @@ class Toolbar extends Component {
         //chosenAlgorithm(algorithm); //Call this action to update the chosen algorithm
     }
     generateNewArray = () => {
+        let { changeArrayNumbers } = this.props;
         const { arraySize } = this.props.array;
         let newArray = []
         for (let i = 0; i < arraySize; i++) {
-            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            let randomNumber = Math.floor(Math.random() * 600) + 1;
             newArray.push(randomNumber);
         }
-        return newArray;
+        changeArrayNumbers(newArray);
     }
     handleChange(e) {
-        //WILL CONTAIN THE SLIDER VALUES FOR EITHER ARRAY/SORTSPEED 
+        let { changeArraySize } = this.props;
+        changeArraySize(e.target.value);
+        this.generateNewArray();
+
     }
     render() {
-        console.log(this.props);
         return (
             <div className="toolbar-container">
                 <button>Sort</button>
 
-                <button>Generate new Array</button>
+                <button onClick={this.generateNewArray}>Generate new Array</button>
                 <div>
-                    <input type="range" min="10" max="100" id="arraySize" />
-                    Change array size
+                    <input type="range" min="10" max="100" defaultValue={this.props.array.arraySize} id="arraySize" onChange={this.handleChange} />
+                    CURRENT ARRAY SIZE = {this.props.array.arraySize}
                 </div>
             </div >
         );
