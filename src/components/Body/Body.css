@@ -1,0 +1,10 @@
+.bar-containers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+.bar{
+    border:1px solid black;
+    flex-grow: 1;
+    background-color: red;
+}
