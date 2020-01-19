@@ -8,6 +8,7 @@ class Body extends Component {
         this.state = {}
     }
     componentDidMount = () => {
+        console.log(this.props)
 
     }
     render() {
@@ -27,7 +28,7 @@ class Body extends Component {
     }
 }
 
-const mapStateToProps = ({ array }) => ({
-    array
+const mapStateToProps = ({ array, swappers }) => ({
+    array, swappers
 })
 export default connect(mapStateToProps)(Body);
