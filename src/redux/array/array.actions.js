@@ -1,4 +1,4 @@
-import { arrayActionTypes } from "./array.types";
+import arrayActionTypes from "./array.types";
 
 export const changeArraySize = (newSize) => ({
     type: arrayActionTypes.CHANGE_ARRAY_SIZE,
@@ -7,6 +7,6 @@ export const changeArraySize = (newSize) => ({
 
 export const changeArrayNumbers = (newArray) => ({
     type: arrayActionTypes.CHANGE_ARRAY_NUMBERS,
-    payload: newSize
+    payload: newArray
 });
 

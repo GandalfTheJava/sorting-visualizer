@@ -1,7 +1,7 @@
-import { arrayActionTypes } from "./array.types";
+import arrayActionTypes from "./array.types";
 const INITIAL_STATE = {
     arraySize: 10,
-    arrayNumbers: []
+    arrayOfNumbers: null
 }
 
 const arrayReducer = (state = INITIAL_STATE, action) => {
@@ -14,7 +14,7 @@ const arrayReducer = (state = INITIAL_STATE, action) => {
         case arrayActionTypes.CHANGE_ARRAY_NUMBERS:
             return {
                 ...state,
-                arrayNumbers: action.payload
+                arrayOfNumbers: action.payload
             }
         default:
             return state;
@@ -22,3 +22,4 @@ const arrayReducer = (state = INITIAL_STATE, action) => {
 }
 
 export default arrayReducer;
+

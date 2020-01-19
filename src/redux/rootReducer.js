@@ -3,5 +3,5 @@ import { combineReducers } from 'redux';
 import arrayReducer from "./array/array.reducer";
 
 export default combineReducers({
-    arraySize: arrayReducer
+    array: arrayReducer
 });
