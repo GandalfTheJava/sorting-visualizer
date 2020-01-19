@@ -40,8 +40,8 @@ class Toolbar extends Component {
         this.generateNewArray();
     }
     sort = () => {
-        let { toggleIsRunning } = this.props
-        toggleIsRunning();
+
+
     }
     render() {
         return (
