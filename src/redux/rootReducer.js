@@ -6,6 +6,6 @@ import isRunningReducer from "./isRunning/isRunning.reducer";
 
 export default combineReducers({
     array: arrayReducer,
-    swappers: swapperReducer,
+    swapper: swapperReducer,
     isRunning: isRunningReducer
 });
