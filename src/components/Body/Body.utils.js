@@ -4,11 +4,13 @@ import Body from './Body';
 const mapStateToProps = ({
     array,
     currentBubbleTwo,
-    currentSorted
+    currentSorted,
+    swapper
 }) => ({
     array,
     currentBubbleTwo,
-    currentSorted
+    currentSorted,
+    swapper
 });
 
 export default connect(mapStateToProps)(Body);

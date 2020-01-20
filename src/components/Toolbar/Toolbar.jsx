@@ -10,9 +10,9 @@ class Toolbar extends Component {
     componentDidMount = () => {
         this.generateNewArray(); //Generate a new random assortment of numbers (10)
     }
-    componentDidUpdate(a) {
-        if (a !== this.props) {
-            console.log(this.props.isRunning)
+    componentDidUpdate(oldProp) {
+        if (oldProp !== this.props) {
+            //console.log(this.props.isRunning)
         }
     }
     handleClick(algorithm) {
@@ -35,18 +35,16 @@ class Toolbar extends Component {
         changeArraySize(e.target.value);
         this.generateNewArray();
     }
-    sort = () => {
-        alert("Sort clicked")
-    }
     render() {
+        let { array, sort } = this.props;
         return (
             <div className="toolbar-container">
-                <button onClick={this.sort}>Sort</button>
+                <button onClick={() => sort(array.arrayOfNumbers.length ? array.arrayOfNumbers : null)}>Sort</button>
 
                 <button onClick={this.generateNewArray}>Generate new Array</button>
                 <div>
-                    <input type="range" min="10" max="100" defaultValue={this.props.array.arraySize} id="arraySize" onChange={this.handleChange} />
-                    CURRENT ARRAY SIZE = {this.props.array.arraySize}
+                    <input type="range" min="10" max="100" defaultValue={array.arraySize} id="arraySize" onChange={this.handleChange} />
+                    CURRENT ARRAY SIZE = {array.arraySize}
                 </div>
             </div >
         );

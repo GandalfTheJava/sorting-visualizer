@@ -5,17 +5,25 @@ class Body extends Component {
     constructor(props) {
         super(props)
     }
-    componentDidMount = () => {
-
-    }
     render() {
-        const { arrayOfNumbers } = this.props.array;
+        const {
+            array,
+            swapper,
+            currentSorted,
+            currentBubbleTwo
+        } = this.props;
         return (
             <div className="bar-containers">
                 {
-                    arrayOfNumbers ? (arrayOfNumbers.map((element, index) => {
+                    array.arrayOfNumbers ? (array.arrayOfNumbers.map((element, index) => {
+                        const barColor = swapper.includes(index) ? 'blue' : //IF SWAPPING
+                            currentBubbleTwo.includes(index) ? 'green' : //IF CURRENT BUBBLE TWO IS COMPARING
+                                currentSorted.includes(index) ? 'purple' : 'red' //IF SORTED PURPLE ELSE RED
                         return (
-                            <div key={index} className="bar" style={{ height: `${element}px` }}>
+                            <div
+                                className="bar"
+                                key={index}
+                                style={{ height: `${element}px`, backgroundColor: barColor }}>
                             </div>
                         )
                     })) : (null)
