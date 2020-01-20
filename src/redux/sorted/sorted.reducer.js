@@ -8,6 +8,7 @@ const sortedReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state.concat(action.payload)
             }
+        default: return []
     }
 }
 export default sortedReducer;
