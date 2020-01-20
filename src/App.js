@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Body from "./components/Body/Body";
-import Toolbar from "./components/Toolbar/Toolbar";
+import Body from "./components/Body/Body.utils";
+import Toolbar from "./components/Toolbar/Toolbar.utils";
 
 function App() {
   return (

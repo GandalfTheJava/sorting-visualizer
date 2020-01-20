@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { changeArrayNumbers, changeArraySize } from "../../redux/array/array.actions";
-import { toggleIsRunning } from "../../redux/isRunning/isRunning.actions";
-
 import "./Toolbar.css";
 
 class Toolbar extends Component {
@@ -40,8 +36,7 @@ class Toolbar extends Component {
         this.generateNewArray();
     }
     sort = () => {
-
-
+        alert("Sort clicked")
     }
     render() {
         return (
@@ -57,14 +52,4 @@ class Toolbar extends Component {
         );
     }
 }
-
-const mapStateToProps = ({ array, isRunning }) => ({
-    array,
-    isRunning
-})
-const mapDispatchToProps = (dispatch) => ({
-    changeArrayNumbers: newArray => dispatch(changeArrayNumbers(newArray)),
-    changeArraySize: newSize => dispatch(changeArraySize(newSize)),
-    toggleIsRunning: () => dispatch(toggleIsRunning())
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+export default Toolbar;
