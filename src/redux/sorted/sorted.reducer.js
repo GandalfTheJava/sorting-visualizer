@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     currentSorted: []
 };
 
-export const sortedReducer = (state = INITIAL_STATE, action) => {
+const sortedReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case sortedActionTypes.SET_CURRENT_SORTED:
             return {
@@ -16,4 +16,4 @@ export const sortedReducer = (state = INITIAL_STATE, action) => {
 
     }
 }
-
+export default sortedReducer;
