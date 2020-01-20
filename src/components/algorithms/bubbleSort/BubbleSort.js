@@ -26,7 +26,7 @@ function BubbleSort(defaultArray, dispatch) {
         toDispatch.push([true, currentArray.length - 1 - round]);
         round++;
     }
-    handleDispatch(toDispatch, dispatch, currentArray); //WHAT IS THE DISPATCH PARAMETER?
+    handleDispatch(toDispatch, dispatch, currentArray);
     return currentArray;
 }
 
@@ -37,17 +37,19 @@ function handleDispatch(toDispatch, dispatch, array) {
             dispatch(setCurrentBubbleSort([]));
             dispatch(setCurrentSorted(array.map((element, index) => index)));
             dispatch(toggleIsRunning());
-        }, 500);
+        }, 1000);
     }
-    let dispatchFunction = toDispatch[0].length > 3 ?
-        changeArrayNumbers : toDispatch[0].length === 3 || toDispatch[0].length === 0 ?
-            setCurrentSorted : toDispatch[0].length === 2 && typeof toDispatch[0][0] === 'boolean' ?
+    let dispatchFunction = toDispatch[0].length > 3 ? changeArrayNumbers
+        :
+        toDispatch[0].length === 3 || toDispatch[0].length === 0 ? setCurrentSorted
+            :
+            toDispatch[0].length === 2 && typeof toDispatch[0][0] === 'boolean' ?
                 setCurrentSorted : setCurrentBubbleSort;
 
     dispatch(dispatchFunction(toDispatch.shift()));
     setTimeout(() => {
         handleDispatch(toDispatch, dispatch, array);
-    }, 500);
+    }, 20);
 
 }
 

@@ -1,7 +1,7 @@
 import arrayActionTypes from "./array.types";
 const INITIAL_STATE = {
     arraySize: 20,
-    arrayOfNumbers: null
+    arrayOfNumbers: []
 }
 
 const arrayReducer = (state = INITIAL_STATE, action) => {

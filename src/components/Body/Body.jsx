@@ -26,7 +26,7 @@ class Body extends Component {
                                 style={{ height: `${element}px`, backgroundColor: barColor }}>
                             </div>
                         )
-                    })) : (null)
+                    })) : null
                 }
             </div>
         );
