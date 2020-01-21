@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import "./Body.css";
 
 class Body extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
         const {
             array,
-            swapper,
             currentSorted,
             currentBubbleTwo
         } = this.props;
@@ -26,7 +22,7 @@ class Body extends Component {
                                 style={{ height: `${element}px`, backgroundColor: barColor }}>
                             </div>
                         )
-                    })) : null
+                    })) : (null)
                 }
             </div>
         );

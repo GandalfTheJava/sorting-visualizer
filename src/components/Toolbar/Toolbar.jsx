@@ -10,11 +10,6 @@ class Toolbar extends Component {
     componentDidMount = () => {
         this.generateNewArray(); //Generate a new random assortment of numbers (10)
     }
-    componentDidUpdate(oldProp) {
-        if (oldProp !== this.props) {
-            //console.log(this.props.isRunning)
-        }
-    }
     handleClick(algorithm) {
         //const { chosenAlgorithm } = this.props; //Update the algorithm chosen
 
@@ -25,7 +20,7 @@ class Toolbar extends Component {
         const { arraySize } = this.props.array;
         let newArray = []
         for (let i = 0; i < arraySize; i++) {
-            let randomNumber = Math.floor(Math.random() * 600) + 1;
+            let randomNumber = Math.floor(Math.random() * 750) + 1;
             newArray.push(randomNumber);
         }
         changeArrayNumbers(newArray);
