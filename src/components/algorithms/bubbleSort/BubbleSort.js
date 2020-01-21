@@ -1,4 +1,5 @@
 import { setCurrentBubbleSort } from "../../../redux/bubbleSort/bubbleSort.actions"; //Bubble sort reducer
+import { currentSwappers } from "../../../redux/swappers/swappers.actions";
 import { changeArrayNumbers } from "../../../redux/array/array.actions"; //Handles changes to the array
 import { setCurrentSorted } from "../../../redux/sorted/sorted.actions"; //Set the order of the currently sorted
 import { toggleIsRunning } from "../../../redux/isRunning/isRunning.actions"; //Toggles true/false depending on current state of the algorithm
@@ -37,11 +38,11 @@ function handleDispatch(toDispatch, dispatch, array) {
             dispatch(setCurrentBubbleSort([]));
             dispatch(setCurrentSorted(array.map((element, index) => index)));
             dispatch(toggleIsRunning());
-        }, 1000);
+        }, 500);
     }
     let dispatchFunction = toDispatch[0].length > 3 ? changeArrayNumbers
         :
-        toDispatch[0].length === 3 || toDispatch[0].length === 0 ? setCurrentSorted
+        toDispatch[0].length === 3 || toDispatch[0].length === 0 ? currentSwappers
             :
             toDispatch[0].length === 2 && typeof toDispatch[0][0] === 'boolean' ?
                 setCurrentSorted : setCurrentBubbleSort;
@@ -49,7 +50,7 @@ function handleDispatch(toDispatch, dispatch, array) {
     dispatch(dispatchFunction(toDispatch.shift()));
     setTimeout(() => {
         handleDispatch(toDispatch, dispatch, array);
-    }, 20);
+    }, 100);
 
 }
 
