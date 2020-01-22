@@ -14,7 +14,7 @@ class Body extends Component {
                     array.arrayOfNumbers ? (array.arrayOfNumbers.map((element, index) => {
                         const barColor =  //IF SWAPPING
                             currentBubbleTwo.includes(index) ? 'green' : //IF CURRENT BUBBLE TWO IS COMPARING
-                                currentSorted.includes(index) ? 'purple' : 'red' //IF SORTED PURPLE ELSE RED
+                                currentSorted.includes(index) ? 'purple' : '#2e279d' //IF SORTED PURPLE ELSE RED
                         return (
                             <div
                                 className="bar"

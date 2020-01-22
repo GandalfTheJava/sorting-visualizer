@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    background-color: #4d80e4;
   }
 .bar{
     border:1px solid #000000;
