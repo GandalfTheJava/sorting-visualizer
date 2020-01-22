@@ -38,7 +38,7 @@ function handleDispatch(toDispatch, dispatch, array) {
             dispatch(setCurrentBubbleSort([]));
             dispatch(setCurrentSorted(array.map((element, index) => index)));
             dispatch(toggleIsRunning());
-        }, 300);
+        }, 50); //Final iteration once the sorting is completed
         return;
     }
     let dispatchFunction = toDispatch[0].length > 3 ? changeArrayNumbers
@@ -51,7 +51,7 @@ function handleDispatch(toDispatch, dispatch, array) {
     dispatch(dispatchFunction(toDispatch.shift()));
     setTimeout(() => {
         handleDispatch(toDispatch, dispatch, array);
-    }, 200);
+    }, 0); //Per cycle of dispatch
 
 }
 
