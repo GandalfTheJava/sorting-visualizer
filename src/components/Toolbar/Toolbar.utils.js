@@ -3,6 +3,8 @@ import { changeArrayNumbers, changeArraySize } from "../../redux/array/array.act
 import { toggleIsRunning } from "../../redux/isRunning/isRunning.actions";
 import { setCurrentSorted } from '../../redux/sorted/sorted.actions';
 import { setCurrentAlgorithm } from "../../redux/algorithm/algorithm.actions";
+import { changeSortSpeed } from "../../redux/sortSpeed/sortSpeed.actions";
+
 import BubbleSort from '../algorithms/bubbleSort/BubbleSort';
 import Toolbar from './Toolbar';
 
@@ -10,11 +12,13 @@ const mapStateToProps = ({
     array,
     isRunning,
     algorithm,
+    sortSpeed,
     setCurrentSorted
 
 }) => ({
     array,
     isRunning,
+    sortSpeed,
     algorithm,
     setCurrentSorted
 });
@@ -25,10 +29,11 @@ const mapDispatchToProps = (dispatch) => ({
     toggleIsRunning: () => dispatch(toggleIsRunning()),
     setCurrentAlgorithm: algorithm => dispatch(setCurrentAlgorithm(algorithm)),
     setCurrentSorted: (newSorted) => dispatch(setCurrentSorted(newSorted)),
-    sort: (array) => (
+    changeSortSpeed: (newSpeed) => dispatch(changeSortSpeed(newSpeed)),
+    sort: (array, sortSpeed) => (
         dispatch(setCurrentSorted([])),
         dispatch(toggleIsRunning()),
-        BubbleSort(array, dispatch)
+        BubbleSort(array, dispatch, sortSpeed)
     )
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);

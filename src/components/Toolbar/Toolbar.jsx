@@ -21,24 +21,32 @@ class Toolbar extends Component {
         changeArrayNumbers(newArray);
     }
     handleChange = (e) => {
-        let { changeArraySize } = this.props;
-        changeArraySize(e.target.value);
-        this.generateNewArray();
+        let c = e.target.id.toString();
+        if (c === "arraySize") {
+            let { changeArraySize } = this.props;
+            changeArraySize(e.target.value);
+            this.generateNewArray();
+        } else {
+            let { changeSortSpeed } = this.props;
+            changeSortSpeed(e.target.value);
+        }
     }
     reset = () => {
         this.generateNewArray();
-        console.log(this.props);
         const { setCurrentSorted, setCurrentAlgorithm, toggleIsRunning } = this.props;
         setCurrentAlgorithm("Choose an Algorithm!");
         setCurrentSorted([]);
         toggleIsRunning();
+        this.render();
     }
     handleSort = (e) => {
+        e.preventDefault();
         let { setCurrentAlgorithm } = this.props;
         setCurrentAlgorithm(e.target.text);
     }
     render() {
-        let { array, sort, setCurrentAlgorithm, algorithm } = this.props;
+        let { array, sort, algorithm, sortSpeed } = this.props;
+        let currentArray = array.arrayOfNumbers;
         let { isRunning } = this.props.isRunning;
         return (
             <div className="toolbar-container">
@@ -51,7 +59,7 @@ class Toolbar extends Component {
                         </DropdownButton>
                     </div>
                     <div className="control-buttons">
-                        <button onClick={() => sort((array.arrayOfNumbers.length ? array.arrayOfNumbers : null))} disabled={isRunning}>Sort</button>
+                        <button onClick={() => sort((currentArray.length ? currentArray : null), sortSpeed.sortSpeed)} disabled={isRunning}>Sort</button>
                         <button onClick={this.reset} disabled={isRunning}>RESET!</button>
                     </div>
                 </div>
@@ -62,8 +70,8 @@ class Toolbar extends Component {
                     </div>
                     <div className="separator"></div>
                     <div className="range">
-                        CHANGE SORT SPEED = 10
-                        <input type="range" min="10" max="100" defaultValue={array.arraySize} id="arraySize" onChange={this.handleChange} disabled={isRunning} />
+                        CHANGE SORT SPEED = {sortSpeed.sortSpeed}
+                        <input type="range" min="50" max="500" defaultValue={sortSpeed.sortSpeed} id="sortSpeed" onChange={this.handleChange} disabled={isRunning} />
                     </div>
                 </div>
             </div >

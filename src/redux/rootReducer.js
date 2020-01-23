@@ -6,6 +6,8 @@ import isRunningReducer from "./isRunning/isRunning.reducer";
 import sortedReducer from "./sorted/sorted.reducer";
 import bubbleSortReducer from './bubbleSort/bubbleSort.reducer';
 import algorithmReducer from './algorithm/algorithm.reducer';
+import sortSpeedReducer from "./sortSpeed/sortSpeed.reducer";
+
 
 export default combineReducers({
     array: arrayReducer,
@@ -13,5 +15,6 @@ export default combineReducers({
     isRunning: isRunningReducer,
     currentSorted: sortedReducer,
     currentBubbleTwo: bubbleSortReducer,
-    algorithm: algorithmReducer
+    algorithm: algorithmReducer,
+    sortSpeed: sortSpeedReducer
 });
