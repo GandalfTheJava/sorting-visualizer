@@ -1,9 +1,13 @@
 .toolbar-container{
     display:flex;
+    height:15vh;
     flex-direction: column;
     justify-content: center;
     border: 2px solid black;
-    background-color: #46b3e6;
+    background-color: #1b262c;
+}
+:disabled{
+    color: black;
 }
 .algo-button{
     margin: 5px;
@@ -11,6 +15,7 @@
 #dropdown:hover{
     border:2px solid black;
     background-color: chartreuse;
+    color:black;
 }
 .control-buttons{
     margin-right: 5px;
@@ -23,10 +28,11 @@ button:hover{
     display:flex;
     flex-direction: row;
     justify-content: center;
+    color: white;
 }
 .separator{
     width:30px;
-    background-color: white;
+    background-color: transparent;
 }
 .range{
     display:flex;

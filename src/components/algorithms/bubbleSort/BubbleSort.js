@@ -51,7 +51,7 @@ function handleDispatch(toDispatch, dispatch, array) {
     dispatch(dispatchFunction(toDispatch.shift()));
     setTimeout(() => {
         handleDispatch(toDispatch, dispatch, array);
-    }, 0); //Per cycle of dispatch
+    }, 10); //Per cycle of dispatch
 
 }
 

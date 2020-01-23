@@ -1,8 +1,10 @@
 .bar-containers{
     display: flex;
+    height: 85vh;
+    margin-bottom: 2px;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: #4d80e4;
+    background-color: #0f4c75;
   }
 .bar{
     border:1px solid #000000;

@@ -9,11 +9,14 @@ import Toolbar from './Toolbar';
 const mapStateToProps = ({
     array,
     isRunning,
-    algorithm
+    algorithm,
+    setCurrentSorted
+
 }) => ({
     array,
     isRunning,
-    algorithm
+    algorithm,
+    setCurrentSorted
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -21,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
     changeArraySize: newSize => dispatch(changeArraySize(newSize)),
     toggleIsRunning: () => dispatch(toggleIsRunning()),
     setCurrentAlgorithm: algorithm => dispatch(setCurrentAlgorithm(algorithm)),
+    setCurrentSorted: (newSorted) => dispatch(setCurrentSorted(newSorted)),
     sort: (array) => (
         dispatch(setCurrentSorted([])),
         dispatch(toggleIsRunning()),
