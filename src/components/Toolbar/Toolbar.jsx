@@ -29,27 +29,30 @@ class Toolbar extends Component {
         this.generateNewArray();
         console.log(this.props);
         const { setCurrentSorted, setCurrentAlgorithm, toggleIsRunning } = this.props;
-        setCurrentAlgorithm("");
+        setCurrentAlgorithm("Choose an Algorithm!");
         setCurrentSorted([]);
         toggleIsRunning();
+    }
+    handleSort = (e) => {
+        let { setCurrentAlgorithm } = this.props;
+        setCurrentAlgorithm(e.target.text);
     }
     render() {
         let { array, sort, setCurrentAlgorithm, algorithm } = this.props;
         let { isRunning } = this.props.isRunning;
-        console.log(isRunning);
         return (
             <div className="toolbar-container">
                 <div className="algo-container">
                     <div className="algo-button">
                         <DropdownButton id="dropdown" title={algorithm}>
-                            <Dropdown.Item id="Algorithm 1">Algorithm 1</Dropdown.Item>
-                            <Dropdown.Item id="Algorithm 2">Algorithm 2</Dropdown.Item>
-                            <Dropdown.Item id="Algorithm 3">Algorithm 3</Dropdown.Item>
+                            <Dropdown.Item value="Bubble Sort" onClick={this.handleSort}>Bubble Sort</Dropdown.Item>
+                            <Dropdown.Item value="Algorithm 2" onClick={this.handleSort}>Algorithm 2</Dropdown.Item>
+                            <Dropdown.Item value="Algorithm 3" onClick={this.handleSort}>Algorithm 3</Dropdown.Item>
                         </DropdownButton>
                     </div>
                     <div className="control-buttons">
-                        <button onClick={() => sort((array.arrayOfNumbers.length ? array.arrayOfNumbers : null), setCurrentAlgorithm("HERE WE ARE"))} disabled={isRunning}>Sort</button>
-                        <button onClick={this.reset} disabled={isRunning} >RESET!</button>
+                        <button onClick={() => sort((array.arrayOfNumbers.length ? array.arrayOfNumbers : null))} disabled={isRunning}>Sort</button>
+                        <button onClick={this.reset} disabled={isRunning}>RESET!</button>
                     </div>
                 </div>
                 <div className="range-selector">
