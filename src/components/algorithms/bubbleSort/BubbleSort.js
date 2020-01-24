@@ -6,33 +6,33 @@ import { toggleIsRunning } from "../../../redux/isRunning/isRunning.actions"; //
 
 function BubbleSort(defaultArray, dispatch, sortSpeed) {
     let currentArray = defaultArray.slice(0),
-        toDispatch = [],
+        toRender = [],
         sorted = false,
         round = 0;
 
     while (!sorted) {
         sorted = true;
         for (let i = 0; i < currentArray.length - 1 - round; i++) {
-            toDispatch.push([i, i + 1]);
+            toRender.push([i, i + 1]);
             if (currentArray[i] > currentArray[i + 1]) {
-                toDispatch.push([i, i + 1, true]);
+                toRender.push([i, i + 1, true]);
                 let temp = currentArray[i];
                 currentArray[i] = currentArray[i + 1];
                 currentArray[i + 1] = temp;
                 sorted = false;
-                toDispatch.push(currentArray.slice(0));
-                toDispatch.push([]);
+                toRender.push(currentArray.slice(0));
+                toRender.push([]);
             }
         }
-        toDispatch.push([true, currentArray.length - 1 - round]);
+        toRender.push([true, currentArray.length - 1 - round]);
         round++;
     }
-    handleDispatch(toDispatch, dispatch, currentArray, sortSpeed);
+    handleDispatch(toRender, dispatch, currentArray, sortSpeed);
     return currentArray;
 }
 
-function handleDispatch(toDispatch, dispatch, array, sortSpeed) {
-    if (!toDispatch.length) {
+function handleDispatch(toRender, dispatch, array, sortSpeed) {
+    if (!toRender.length) {
         dispatch(setCurrentBubbleSort(array.map((element, index) => index)));
         setTimeout(() => {
             dispatch(setCurrentBubbleSort([]));
@@ -41,15 +41,15 @@ function handleDispatch(toDispatch, dispatch, array, sortSpeed) {
         }, 500); //Final iteration once the sorting is completed
         return;
     }
-    let dispatchFunction = toDispatch[0].length > 3 ? changeArrayNumbers
+    let dispatchFunction = toRender[0].length > 3 ? changeArrayNumbers
         :
-        toDispatch[0].length === 3 || toDispatch[0].length === 0 ? currentSwappers
+        toRender[0].length === 3 || toRender[0].length === 0 ? currentSwappers
             :
-            toDispatch[0].length === 2 && typeof toDispatch[0][0] === 'boolean' ?
+            toRender[0].length === 2 && typeof toRender[0][0] === 'boolean' ?
                 setCurrentSorted : setCurrentBubbleSort;
-    dispatch(dispatchFunction(toDispatch.shift()));
+    dispatch(dispatchFunction(toRender.shift()));
     setTimeout(() => {
-        handleDispatch(toDispatch, dispatch, array, sortSpeed);
+        handleDispatch(toRender, dispatch, array, sortSpeed);
     }, sortSpeed); //Per cycle of dispatch
 
 }

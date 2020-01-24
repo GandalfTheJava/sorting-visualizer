@@ -32,9 +32,11 @@ const mapDispatchToProps = (dispatch) => ({
     changeSortSpeed: (newSpeed) => dispatch(changeSortSpeed(newSpeed)),
     sort: (array, sortSpeed, algorithm) => {
         let algo = algorithm === 'BubbleSort' ? BubbleSort : null;
-        dispatch(setCurrentSorted([]));
-        dispatch(toggleIsRunning());
-        algo(array, dispatch, sortSpeed);
+        if (algo !== null) {
+            dispatch(setCurrentSorted([]));
+            dispatch(toggleIsRunning());
+            algo(array, dispatch, sortSpeed);
+        } else { alert(algorithm) }
     }
 }); //End of mapDispatch
 export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);

@@ -31,14 +31,6 @@ class Toolbar extends Component {
             changeSortSpeed(e.target.value);
         }
     }
-    // reset = () => {
-    //     this.generateNewArray();
-    //     const { setCurrentSorted, setCurrentAlgorithm, toggleIsRunning } = this.props;
-    //     setCurrentAlgorithm("Choose an Algorithm!");
-    //     setCurrentSorted([]);
-    //     toggleIsRunning();
-    //     this.render();
-    // }
     handleSort = (e) => {
         e.preventDefault();
         let { setCurrentAlgorithm } = this.props;
@@ -54,8 +46,6 @@ class Toolbar extends Component {
                     <div className="algo-button">
                         <DropdownButton id="dropdown" title={algorithm}>
                             <Dropdown.Item value="BubbleSort" onClick={this.handleSort}>BubbleSort</Dropdown.Item>
-                            <Dropdown.Item value="Algorithm 2" onClick={this.handleSort}>Algorithm 2</Dropdown.Item>
-                            <Dropdown.Item value="Algorithm 3" onClick={this.handleSort}>Algorithm 3</Dropdown.Item>
                         </DropdownButton>
                     </div>
                     <div className="control-buttons">
