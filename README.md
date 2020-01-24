@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+LINK TO THE PROJECT: https://gandalfthejava.github.io/sorting-visualizer
 
 ### `npm start`
 
