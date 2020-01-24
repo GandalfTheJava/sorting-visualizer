@@ -28,7 +28,7 @@ class Toolbar extends Component {
                 newArray.push(randomNumber);
             }
             else {
-                while (anotherNumber) {
+                while (anotherNumber) { //Ensures no duplicates
                     randomNumber = Math.floor(Math.random() * 650) + 1;
                     if (!newArray.includes(randomNumber)) {
                         newArray.push(randomNumber);
@@ -46,7 +46,7 @@ class Toolbar extends Component {
             changeArraySize(e.target.value);
             setTimeout(() => {
                 this.generateNewArray();
-            }, 5)
+            }, 5) //Allows enough time to gather new arraysize
 
         } else {
             let { changeSortSpeed } = this.props;
@@ -72,7 +72,7 @@ class Toolbar extends Component {
                     </div>
                     <div className="control-buttons">
                         <button onClick={() => sort((currentArray.length ? currentArray : null), sortSpeed.sortSpeed, algorithm)} disabled={isRunning} style={{ visibility: !isRunning ? 'visible' : 'hidden' }}>Sort</button>
-                        <button onClick={this.generateNewArray} disabled={isRunning}>GENERATE NEW ARRAY</button>
+                        <button onClick={this.generateNewArray} disabled={isRunning} style={{ visibility: !isRunning ? 'visible' : 'hidden' }}>GENERATE NEW ARRAY</button>
                     </div>
                 </div>
                 <div className="range-selector">
