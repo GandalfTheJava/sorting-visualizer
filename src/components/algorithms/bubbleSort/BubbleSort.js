@@ -8,8 +8,7 @@ function BubbleSort(defaultArray, dispatch, sortSpeed) {
     let currentArray = defaultArray.slice(0),
         toRender = [],
         sorted = false,
-        n = defaultArray.length - 1,
-        round = 0;
+        n = defaultArray.length - 1;
 
     while (!sorted) {
         sorted = true;
