@@ -15,7 +15,7 @@ class Toolbar extends Component {
         const { arraySize } = this.props.array;
         let newArray = []
         for (let i = 0; i < arraySize; i++) {
-            let randomNumber = Math.floor(Math.random() * 700) + 1;
+            let randomNumber = Math.floor(Math.random() * 650) + 1;
             newArray.push(randomNumber);
         }
         changeArrayNumbers(newArray);
@@ -53,13 +53,13 @@ class Toolbar extends Component {
                 <div className="algo-container">
                     <div className="algo-button">
                         <DropdownButton id="dropdown" title={algorithm}>
-                            <Dropdown.Item value="Bubble Sort" onClick={this.handleSort}>Bubble Sort</Dropdown.Item>
+                            <Dropdown.Item value="BubbleSort" onClick={this.handleSort}>BubbleSort</Dropdown.Item>
                             <Dropdown.Item value="Algorithm 2" onClick={this.handleSort}>Algorithm 2</Dropdown.Item>
                             <Dropdown.Item value="Algorithm 3" onClick={this.handleSort}>Algorithm 3</Dropdown.Item>
                         </DropdownButton>
                     </div>
                     <div className="control-buttons">
-                        <button onClick={() => sort((currentArray.length ? currentArray : null), sortSpeed.sortSpeed)} disabled={isRunning}>Sort</button>
+                        <button onClick={() => sort((currentArray.length ? currentArray : null), sortSpeed.sortSpeed, algorithm)} disabled={isRunning} style={{ visibility: !isRunning ? 'visible' : 'hidden' }}>Sort</button>
                         {/* <button onClick={this.reset} disabled={isRunning}>RESET!</button> */}
                     </div>
                 </div>
@@ -71,7 +71,7 @@ class Toolbar extends Component {
                     <div className="separator"></div>
                     <div className="range">
                         SORT SPEED = {`${sortSpeed.sortSpeed} MS`}
-                        <input type="range" min="200" max="1000" defaultValue={sortSpeed.sortSpeed} id="sortSpeed" onChange={this.handleChange} disabled={isRunning} />
+                        <input type="range" min="10" max="250" defaultValue={sortSpeed.sortSpeed} id="sortSpeed" onChange={this.handleChange} disabled={isRunning} />
                     </div>
                 </div>
             </div >
