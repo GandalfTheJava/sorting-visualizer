@@ -6,17 +6,36 @@ class Toolbar extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSort = this.handleSort.bind(this);
     }
     componentDidMount = () => {
-        this.generateNewArray(); //Generate a new random assortment of numbers (10)
+        this.generateNewArray();
+    }
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props) {
+            this.render();
+        }
     }
     generateNewArray = () => {
-        let { changeArrayNumbers } = this.props;
+        let { changeArrayNumbers, setCurrentSorted } = this.props;
+        setCurrentSorted([]);
         const { arraySize } = this.props.array;
         let newArray = []
         for (let i = 0; i < arraySize; i++) {
             let randomNumber = Math.floor(Math.random() * 650) + 1;
-            newArray.push(randomNumber);
+            let anotherNumber = true
+            if (!newArray.includes(randomNumber)) {
+                newArray.push(randomNumber);
+            }
+            else {
+                while (anotherNumber) {
+                    randomNumber = Math.floor(Math.random() * 650) + 1;
+                    if (!newArray.includes(randomNumber)) {
+                        newArray.push(randomNumber);
+                        anotherNumber = false;
+                    }
+                }
+            }
         }
         changeArrayNumbers(newArray);
     }
@@ -25,7 +44,10 @@ class Toolbar extends Component {
         if (c === "arraySize") {
             let { changeArraySize } = this.props;
             changeArraySize(e.target.value);
-            this.generateNewArray();
+            setTimeout(() => {
+                this.generateNewArray();
+            }, 5)
+
         } else {
             let { changeSortSpeed } = this.props;
             changeSortSpeed(e.target.value);
@@ -50,18 +72,18 @@ class Toolbar extends Component {
                     </div>
                     <div className="control-buttons">
                         <button onClick={() => sort((currentArray.length ? currentArray : null), sortSpeed.sortSpeed, algorithm)} disabled={isRunning} style={{ visibility: !isRunning ? 'visible' : 'hidden' }}>Sort</button>
-                        {/* <button onClick={this.reset} disabled={isRunning}>RESET!</button> */}
+                        <button onClick={this.generateNewArray} disabled={isRunning}>GENERATE NEW ARRAY</button>
                     </div>
                 </div>
                 <div className="range-selector">
                     <div className="range">
                         CURRENT ARRAY SIZE = {array.arraySize}
-                        <input type="range" min="10" max="100" defaultValue={array.arraySize} id="arraySize" onChange={this.handleChange} disabled={isRunning} />
+                        <input type="range" min="10" max="50" defaultValue={array.arraySize} id="arraySize" onChange={this.handleChange} disabled={isRunning} style={{ color: isRunning ? 'red' : null }} />
                     </div>
                     <div className="separator"></div>
                     <div className="range">
                         SORT SPEED = {`${sortSpeed.sortSpeed} MS`}
-                        <input type="range" min="10" max="250" defaultValue={sortSpeed.sortSpeed} id="sortSpeed" onChange={this.handleChange} disabled={isRunning} />
+                        <input type="range" min="5" max="150" defaultValue={sortSpeed.sortSpeed} id="sortSpeed" onChange={this.handleChange} disabled={isRunning} style={{ color: isRunning ? 'red' : null }} />
                     </div>
                 </div>
             </div >

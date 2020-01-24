@@ -1,7 +1,7 @@
 import sortSpeedActionTypes from "./sortSpeed.types";
 
 const INITIAL_STATE = {
-    sortSpeed: 10
+    sortSpeed: 5
 };
 
 const sortSpeedReducer = (state = INITIAL_STATE, action) => {

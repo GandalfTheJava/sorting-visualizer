@@ -8,11 +8,12 @@ function BubbleSort(defaultArray, dispatch, sortSpeed) {
     let currentArray = defaultArray.slice(0),
         toRender = [],
         sorted = false,
+        n = defaultArray.length - 1,
         round = 0;
 
     while (!sorted) {
         sorted = true;
-        for (let i = 0; i < currentArray.length - 1 - round; i++) {
+        for (let i = 0; i < n; i++) {
             toRender.push([i, i + 1]);
             if (currentArray[i] > currentArray[i + 1]) {
                 toRender.push([i, i + 1, true]);
@@ -24,8 +25,8 @@ function BubbleSort(defaultArray, dispatch, sortSpeed) {
                 toRender.push([]);
             }
         }
-        toRender.push([true, currentArray.length - 1 - round]);
-        round++;
+        toRender.push([true, n]);
+        n--;
     }
     handleDispatch(toRender, dispatch, currentArray, sortSpeed);
     return currentArray;
