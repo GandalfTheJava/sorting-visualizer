@@ -5,7 +5,6 @@ import { setCurrentSorted } from "../../../redux/sorted/sorted.actions"; //Set t
 import { toggleIsRunning } from "../../../redux/isRunning/isRunning.actions"; //Toggles true/false depending on current state of the algorithm
 
 function BubbleSort(defaultArray, dispatch, sortSpeed) {
-    console.log("SORT SPEED EXECUTED AT " + sortSpeed)
     let currentArray = defaultArray.slice(0),
         toDispatch = [],
         sorted = false,
@@ -39,7 +38,7 @@ function handleDispatch(toDispatch, dispatch, array, sortSpeed) {
             dispatch(setCurrentBubbleSort([]));
             dispatch(setCurrentSorted(array.map((element, index) => index)));
             dispatch(toggleIsRunning());
-        }, 50); //Final iteration once the sorting is completed
+        }, 500); //Final iteration once the sorting is completed
         return;
     }
     let dispatchFunction = toDispatch[0].length > 3 ? changeArrayNumbers
@@ -50,7 +49,7 @@ function handleDispatch(toDispatch, dispatch, array, sortSpeed) {
                 setCurrentSorted : setCurrentBubbleSort;
     dispatch(dispatchFunction(toDispatch.shift()));
     setTimeout(() => {
-        handleDispatch(toDispatch, dispatch, array);
+        handleDispatch(toDispatch, dispatch, array, sortSpeed);
     }, sortSpeed); //Per cycle of dispatch
 
 }

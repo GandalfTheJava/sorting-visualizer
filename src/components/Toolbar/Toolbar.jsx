@@ -31,14 +31,14 @@ class Toolbar extends Component {
             changeSortSpeed(e.target.value);
         }
     }
-    reset = () => {
-        this.generateNewArray();
-        const { setCurrentSorted, setCurrentAlgorithm, toggleIsRunning } = this.props;
-        setCurrentAlgorithm("Choose an Algorithm!");
-        setCurrentSorted([]);
-        toggleIsRunning();
-        this.render();
-    }
+    // reset = () => {
+    //     this.generateNewArray();
+    //     const { setCurrentSorted, setCurrentAlgorithm, toggleIsRunning } = this.props;
+    //     setCurrentAlgorithm("Choose an Algorithm!");
+    //     setCurrentSorted([]);
+    //     toggleIsRunning();
+    //     this.render();
+    // }
     handleSort = (e) => {
         e.preventDefault();
         let { setCurrentAlgorithm } = this.props;
@@ -60,7 +60,7 @@ class Toolbar extends Component {
                     </div>
                     <div className="control-buttons">
                         <button onClick={() => sort((currentArray.length ? currentArray : null), sortSpeed.sortSpeed)} disabled={isRunning}>Sort</button>
-                        <button onClick={this.reset} disabled={isRunning}>RESET!</button>
+                        {/* <button onClick={this.reset} disabled={isRunning}>RESET!</button> */}
                     </div>
                 </div>
                 <div className="range-selector">
@@ -70,8 +70,8 @@ class Toolbar extends Component {
                     </div>
                     <div className="separator"></div>
                     <div className="range">
-                        CHANGE SORT SPEED = {sortSpeed.sortSpeed}
-                        <input type="range" min="50" max="500" defaultValue={sortSpeed.sortSpeed} id="sortSpeed" onChange={this.handleChange} disabled={isRunning} />
+                        SORT SPEED = {`${sortSpeed.sortSpeed} MS`}
+                        <input type="range" min="200" max="1000" defaultValue={sortSpeed.sortSpeed} id="sortSpeed" onChange={this.handleChange} disabled={isRunning} />
                     </div>
                 </div>
             </div >
