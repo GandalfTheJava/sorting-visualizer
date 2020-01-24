@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/sorting-visualizer/static/css/main.04f08aaf.chunk.css",
-    "main.js": "/sorting-visualizer/static/js/main.e90d8bc7.chunk.js",
-    "main.js.map": "/sorting-visualizer/static/js/main.e90d8bc7.chunk.js.map",
-    "runtime-main.js": "/sorting-visualizer/static/js/runtime-main.496caed9.js",
-    "runtime-main.js.map": "/sorting-visualizer/static/js/runtime-main.496caed9.js.map",
+    "main.js": "/sorting-visualizer/static/js/main.7c261836.chunk.js",
+    "main.js.map": "/sorting-visualizer/static/js/main.7c261836.chunk.js.map",
+    "runtime-main.js": "/sorting-visualizer/static/js/runtime-main.91606815.js",
+    "runtime-main.js.map": "/sorting-visualizer/static/js/runtime-main.91606815.js.map",
     "static/css/2.aa072805.chunk.css": "/sorting-visualizer/static/css/2.aa072805.chunk.css",
-    "static/js/2.0f351f9a.chunk.js": "/sorting-visualizer/static/js/2.0f351f9a.chunk.js",
-    "static/js/2.0f351f9a.chunk.js.map": "/sorting-visualizer/static/js/2.0f351f9a.chunk.js.map",
+    "static/js/2.472ac6a9.chunk.js": "/sorting-visualizer/static/js/2.472ac6a9.chunk.js",
+    "static/js/2.472ac6a9.chunk.js.map": "/sorting-visualizer/static/js/2.472ac6a9.chunk.js.map",
     "index.html": "/sorting-visualizer/index.html",
-    "precache-manifest.72dc553b99fde58e157a69614f4440fa.js": "/sorting-visualizer/precache-manifest.72dc553b99fde58e157a69614f4440fa.js",
+    "precache-manifest.5efda7f37c779ab49e80c7e1031aca59.js": "/sorting-visualizer/precache-manifest.5efda7f37c779ab49e80c7e1031aca59.js",
     "service-worker.js": "/sorting-visualizer/service-worker.js",
     "static/css/2.aa072805.chunk.css.map": "/sorting-visualizer/static/css/2.aa072805.chunk.css.map",
     "static/css/main.04f08aaf.chunk.css.map": "/sorting-visualizer/static/css/main.04f08aaf.chunk.css.map",
-    "static/js/2.0f351f9a.chunk.js.LICENSE": "/sorting-visualizer/static/js/2.0f351f9a.chunk.js.LICENSE"
+    "static/js/2.472ac6a9.chunk.js.LICENSE": "/sorting-visualizer/static/js/2.472ac6a9.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.496caed9.js",
+    "static/js/runtime-main.91606815.js",
     "static/css/2.aa072805.chunk.css",
-    "static/js/2.0f351f9a.chunk.js",
+    "static/js/2.472ac6a9.chunk.js",
     "static/css/main.04f08aaf.chunk.css",
-    "static/js/main.e90d8bc7.chunk.js"
+    "static/js/main.7c261836.chunk.js"
   ]
 }
